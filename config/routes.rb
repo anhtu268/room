@@ -16,9 +16,13 @@ Rails.application.routes.draw do
   resources :account_activations, only: %i(edit)
   resources :password_resets, except: %i(show index destroy)
 
-  resources :locations, only: %i(index show new) do
-    resources :reviews, only: [ :create, :destroy]
+  resources :locations, only: %i(index show) do
+    resources :reviews, only: %i(create destroy)
+    resources :rooms, only: :show
+    resources :reservations, only: %i(new create)
   end
+
+
 
   namespace :admin do
     resources(:users){get "search", on: :collection}

@@ -376,6 +376,15 @@ en:
   locations:
     show:
       reviews: "Reviews"
+      description: "Description"
+      rooms: "Rooms"
+      room_name: "Type"
+      occupancy_limit: "Guests"
+      quantity: "Quantity"
+      price: "Price"
+      start: "Start"
+      end: "End"
+      number: :Number
 
   reviews:
     form:
@@ -388,3 +397,8 @@ en:
   users:
     show:
       reviews: "Reviews"
+
+  reservations:
+      create:
+        create_unsuccess: "Create unsuccessful!"
+        created: "Room created!"

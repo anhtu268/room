@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_053315) do
+ActiveRecord::Schema.define(version: 2019_05_19_142116) do
 
   create_table "bed_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_053315) do
     t.string "location"
     t.string "national"
     t.string "zip_code"
-    t.string "description"
+    t.text "description"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_053315) do
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.decimal "total_bill", precision: 12, scale: 3
-    t.boolean "status", default: false
+    t.integer "status", limit: 1, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"
