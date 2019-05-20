@@ -1,0 +1,27 @@
+<%= provide :title, "Reviews" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Reviews</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Comment</th>
+              <th>Rate</th>
+              <th>Create at</th>
+              <th>Update at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @reviews %>
+          </tbody>
+        </table>
+        <%= paginate @reviews %>
+      </div>
+    </div>
+  </div>
+</div>

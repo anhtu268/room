@@ -1,13 +1,68 @@
-<div class="row">
-  <div class="col-md-12">
-    <h3><%= t ".reviews" %><span><%= @location.total_rate%></span> (<%= @location.reviews.count %>)</h3>
-    <div class="container">
-      <div>
-        <%= render "reviews/form" %>
-      </div>
-      <div>
-        <%= render "reviews/list" %>
-      </div>
+<section class="sample-text-area">
+  <div class="container">
+    <h3>
+      <%= content_tag :span, @location.location_type_name, class: "badge badge-info" %>
+      <%= @location.name %>
+      <%= content_tag :span, @location.total_rate, class: @location.rate_badge %>
+    </h3>
+    <div class="row gallery-item">
+      <% @location.pictures.each_with_index do |picture, index| %>
+        <% if index == 0 %>
+          <div class="col-md-8">
+            <%= link_to picture.url, class: "img-gal" do %>
+              <div class="single-gallery-image" style="background: url(<%= picture.url %>);"></div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-md-4">
+            <%= link_to picture.url, class: "img-gal" do %>
+              <div class="single-gallery-image" style="background: url(<%= picture.url %>);"></div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
-</div>
+  <div class="container mt-4">
+    <h3 class="text-heading"><%= t ".description" %></h3>
+    <p class="sample-text"><%= @location.description %></p>
+  </div>
+</section>
+<section class="whole-wrap">
+  <div class="container">
+    <h3 class="text-heading"><%= t ".rooms" %></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t ".room_name" %></th>
+          <th><%= t ".occupancy_limit" %></th>
+          <th><%= t ".quantity" %></th>
+          <th><%= t ".price" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @location.rooms.each do |room| %>
+          <tr>
+          <td><%= link_to room.name, location_room_path(@location, room) %></td>
+          <td><%= room.occupancy_limit %></td>
+          <td><%= room.quantity %></td>
+          <td><%= room.price %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Book now", new_location_reservation_path(@location), class: "genric-btn primary" %>
+  </div>
+</section>
+
+<section class="sample-text-area">
+  <div class="container">
+    <h3><%= t ".reviews" %> (<%= @location.reviews.count %>)</h3>
+    <div>
+      <%= render "reviews/form" %>
+    </div>
+    <div>
+      <%= render "reviews/list" %>
+    </div>
+  </div>
+</section>

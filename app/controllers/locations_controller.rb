@@ -6,12 +6,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.includes(:reviews).find_by id: params[:id]
-    @review = Review.new
-  end
-
-  def new
-    @location = current_user.locations.build
+    @location = Location.includes(:reviews, :rooms).find_by id: params[:id]
   end
 
   private

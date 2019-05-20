@@ -1,0 +1,7 @@
+<tr>
+  <td><%= review.user.name %></td>
+  <td><%= review.comment %></td>
+  <td><%= content_tag :span, review.rate, class: review.rate_badge %></td>
+  <td><%= l review.created_at, format: :full %></td>
+  <td><%= l review.updated_at, format: :full %></td>
+</tr>

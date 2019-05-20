@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to reservation.id, manager_location_reservation_reservation_details_path(@location, reservation) %></td>
+  <td><%= reservation.user.name %></td>
+  <td><%= reservation.total_bill %></td>
+  <td><%= link_to reservation.status_tag[:name], manager_location_reservation_path(@location, reservation), method: :patch, class: reservation.status_tag[:class] %></td>
+  <td><%= l reservation.created_at, format: :full %></td>
+  <td><%= l reservation.updated_at, format: :full %></td>
+</tr>

@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to room.name, manager_location_room_path(1, room) %></td>
+  <td><%= link_to room.name, manager_location_room_path(@location, room) %></td>
   <td><%= room.occupancy_limit %></td>
   <td><%= room.quantity %></td>
   <td><%= room.price %></td>

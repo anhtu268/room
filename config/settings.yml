@@ -19,6 +19,7 @@ search_fields:
     "location_type_id", "user_id", "created_at", "updated_at"]
   service: ["name", "created_at", "updated_at"]
   bed_detail: ["name", "created_at", "updated_at"]
+  reservation: ["total_bill", "created_at", "updated_at"]
 
 controllers:
   admin:
