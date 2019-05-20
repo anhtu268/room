@@ -1,4 +1,4 @@
-<%= form_for [@location, @review] do |f| %>
+<%= form_for [@location, @location.reviews.new] do |f| %>
   <div class="field">
     <div id="star-rating"></div>
   </div>
@@ -7,7 +7,7 @@
   </div>
   <%= f.hidden_field :location_id, value: @location.id %>
   <div class="actions">
-    <%= f.submit t(".create"), class: "btn btn-primary" %>
+    <%= f.submit t(".create"), class: "genric-btn primary" %>
   </div>
 <% end %>
 

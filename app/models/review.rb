@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  include ReviewDecorator
+
   belongs_to :user
   belongs_to :location
 

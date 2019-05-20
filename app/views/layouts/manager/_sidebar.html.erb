@@ -39,6 +39,18 @@
           </ul>
         </div>
       </li>
+      <li class="nav-item">
+        <%= link_to  manager_location_reviews_path(@location), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-city"></i>
+          <span class="menu-title">Reviews</span>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to  manager_location_reservations_path(@location), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-city"></i>
+          <span class="menu-title">Reservation</span>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </nav>

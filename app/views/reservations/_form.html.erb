@@ -1,0 +1,33 @@
+<%= form_for [@location, @reservation] do |f| %>
+  <%= render "shared/error_messages", object: f.object  %>
+  <%= render "shared/error_messages", object: @reservation_detail  %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t ".room_name" %></th>
+        <th><%= t ".occupancy_limit" %></th>
+        <th><%= t ".quantity" %></th>
+        <th><%= t ".price" %></th>
+        <th><%= t ".start" %></th>
+        <th><%= t ".end" %></th>
+        <th><%= t ".number" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @location.rooms.each do |room| %>
+        <tr>
+        <td><%= link_to room.name, location_room_path(@location, room) %></td>
+        <td><%= room.occupancy_limit %></td>
+        <td><%= room.quantity %></td>
+        <td><%= room.price %></td>
+        <td><%= text_field_tag "room[#{room.id}][start_date]", nil, class: "single-input date-picker" %></td>
+        <td><%= text_field_tag "room[#{room.id}][end_date]", nil, class: "single-input date-picker" %></td>
+        <td><%= number_field_tag "room[#{room.id}][number]", 0, class: "single-input",
+          min: 0, max: room.quantity %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= hidden_field_tag "location[id]", @location.id %>
+  <%= f.submit "Book now", class: "genric-btn primary" %>
+<% end %>
