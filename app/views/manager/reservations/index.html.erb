@@ -1,0 +1,28 @@
+<%= provide :title, "Reservations" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Reservations</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>User</th>
+              <th>Total Bill</th>
+              <th>Status</th>
+              <th>Create at</th>
+              <th>Update at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @reservations %>
+          </tbody>
+        </table>
+        <%= paginate @reservations %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,13 +22,19 @@
           <ul class="nav-menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">Accommodations</a></li>
-            <li class="menu-has-children"><a href="">Account</a>
-              <ul>
-                <li><%= link_to "Profile", "#" %></li>
-                <li><%= link_to "Change Password", "#" %></li>
-                <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
-              </ul>
-            </li>
+            <% if logged_in? %>
+              <li><%= link_to "Host", manager_root_path %></li>
+              <li class="menu-has-children"><a href="">Account</a>
+                <ul>
+                  <li><%= link_to "Profile", "#" %></li>
+                  <li><%= link_to "Change Password", changepassword_path %></li>
+                  <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Log In", login_path %></li>
+              <li><%= link_to "Sign up", registration_path %></li>
+            <% end %>
           </ul>
         </nav>
     </div>

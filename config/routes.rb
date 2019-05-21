@@ -38,8 +38,12 @@ Rails.application.routes.draw do
     root "static_pages#home"
     resources :locations, except: :index do
       get "search", on: :collection
-      resources :reviews, only: [:show]
+      resources :reviews, only: :index
       resources(:rooms, except: :destroy){get "search", on: :collection}
+      resources(:reservations, only: %i(index update)) do
+        get "search", on: :collection
+        resources(:reservation_details, only: :index){get "search", on: :collection}
+      end
     end
   end
 end

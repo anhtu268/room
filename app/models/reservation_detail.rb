@@ -20,7 +20,7 @@ class ReservationDetail < ApplicationRecord
   end
 
   def valid_days
-    errors.add(:end_date, "days must more than one") unless self.end_date == self.start_date
+    errors.add(:end_date, "days must more than one") if self.end_date == self.start_date
   end
 
   def valid_room_ready
